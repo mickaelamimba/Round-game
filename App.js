@@ -1,15 +1,26 @@
+//start
 const newGame = document.querySelector('.new-game ')
-const roundPlayerOne = document.querySelector('.round-player-1')
-const roundPlayerTow = document.querySelector('.round-player-2')
+//player
+const playerOne = document.querySelector('#playerOne')
+const playerTow = document.querySelector('#playerTow')
+// player round
+const playerOneRound = document.querySelector('#playerOneRound')
+const playerTowRound = document.querySelector('#playerTowRound')
+ // global
+const playerOneGlobal = document.querySelector('#playerOneGlobal')
+const playerTowGlobal = document.querySelector('#playerTowGlobal')
+
+const rollDice = document.querySelector('#rollDice')
+const hold = document.querySelector('#hold')
 let round = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-let global =''
+let globalPlayerOne =1
+let globalPlayerTow = 0
 
+const roundNumber = (max =6, min =1) => {
+    return Math.floor(Math.random() * (6 - 1 + 1)) + 1
+};
 
-newGame.addEventListener('click', startNewGames)
-
-
-function startNewGames() {
-
-
-    console.log(round)
+const reset = ()=>{
+    playerOneRound.innerText = globalPlayerOne
 }
+reset()
