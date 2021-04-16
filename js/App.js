@@ -28,6 +28,8 @@ let roundPlayerTow = 0
 let globalPlayerOne =0
 let globalPlayerTow = 0
 let player =1
+let tempOne =[]
+let tempTow =[]
 let one =[]
 let tow =[]
 const reducer =(a, b)=> a+b
@@ -47,6 +49,13 @@ const reset = ()=>{
     imageDe.innerHTML = html
 }
 reset()
+const restetRound = ()=>{
+    playerOneRound.innerText = roundPlayerOne
+    playerTowRound.innerText = roundPlayerTow
+    tempOne =[]
+    tempTow =[]
+    
+}
 
 newGame.addEventListener('click', ()=>{
     reset()
@@ -56,19 +65,21 @@ rollDice.addEventListener('click',()=>{
 
 
     if (player != 1) {
-        startsPlay(iniRound, playerTowRound, tow)
+        startsPlay(iniRound, playerTowRound, tempTow )
 
         if (iniRound == 1) {
 
             player = 1
+            restetRound()
         }
 
     } else {
-        startsPlay(iniRound, playerOneRound, one)
+        startsPlay(iniRound, playerOneRound, tempOne)
 
         if (iniRound == 1) {
 
             player = 0
+            restetRound()
 
         }
 
@@ -77,13 +88,17 @@ rollDice.addEventListener('click',()=>{
 })
 hold.addEventListener('click',()=>{
     if (player != 1){
+        tow.push(...tempTow) 
         setReducers(playerTowGlobal,tow)
 
         player =1
+        restetRound()
 
     }else {
+        one.push(...tempOne)
         setReducers(playerOneGlobal,one)
         player =0
+        restetRound()
     }
 
 })
