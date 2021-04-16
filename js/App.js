@@ -43,7 +43,7 @@ const reset = ()=>{
     playerTowGlobal.innerText = globalPlayerTow
     one =[]
     tow =[]
-    let html =`<img src="img/4.svg" alt="image-4" width="196px">`
+    let html =`<img src="./img/4.svg" alt="image-4" width="196px">`
     imageDe.innerHTML = html
 }
 reset()
@@ -103,7 +103,7 @@ const setReducers =(playerRound,arrayValue)=>{
 const imageSettings =(number)=>{
     for (const [key, image] of Object.entries(config) ) {
         if (number == key){
-            imageDe.innerHTML= `<img src="${image}" alt="imgae${-key}" width="196px">`
+            imageDe.innerHTML= `<img class="transition-opacity duration-200 ease-in-out" src="${image}" alt="imgae${-key}" width="196px">`
         }
 
     }
