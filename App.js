@@ -8,8 +8,6 @@ const config ={
         "6": "img/6.svg"
 }
 
-
-
 //start
 const newGame = document.querySelector('#newGame ')
 //player
@@ -58,7 +56,7 @@ rollDice.addEventListener('click',()=>{
 
 
     if (player != 1) {
-        startsPlay(iniRound, playerOne, playerTowRound, tow)
+        startsPlay(iniRound, playerTowRound, tow)
 
         if (iniRound == 1) {
 
@@ -66,7 +64,7 @@ rollDice.addEventListener('click',()=>{
         }
 
     } else {
-        startsPlay(iniRound, playerTow, playerOneRound, one)
+        startsPlay(iniRound, playerOneRound, one)
 
         if (iniRound == 1) {
 
@@ -76,22 +74,32 @@ rollDice.addEventListener('click',()=>{
 
     }
 
+})
+hold.addEventListener('click',()=>{
+    if (player != 1){
+        setReducers(playerTowGlobal,tow)
 
-    console.log(player)
+        player =1
 
-
+    }else {
+        setReducers(playerOneGlobal,one)
+        player =0
+    }
 
 })
-hold.addEventListener()
 
-const startsPlay = (roundNumber,player,playerRound,number )=>{
-    let id =player
-    number.push(roundNumber)
+const startsPlay = (roundNumber,playerRound,arrayValue )=>{
+
+    arrayValue.push(roundNumber)
 
     imageSettings(roundNumber)
-    playerRound.innerText = number.reduce(reducer)
+    setReducers(playerRound,arrayValue)
+
 }
 
+const setReducers =(playerRound,arrayValue)=>{
+    playerRound.innerText = arrayValue.reduce(reducer)
+}
 const imageSettings =(number)=>{
     for (const [key, image] of Object.entries(config) ) {
         if (number == key){
