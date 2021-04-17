@@ -1,7 +1,17 @@
 {
+  "name": "RoundGame",
+  "version": "1.0.0",
+  "description": "jeu de lance de dé",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mickael amimba <amimba.mickael@gmail.com",
+  "main": "js/app.js",
   "devDependencies": {
+    "@babel/cli": "^7.13.14",
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.10",
     "tailwindcss": "^2.1.1"
-  }
+  },
+  "license": "MIT"
 }

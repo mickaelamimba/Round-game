@@ -1,0 +1,31 @@
+.custom-bg-color-l{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    background: #ccc;
+    z-index: -43;
+
+}
+.custom-bg-color-r{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background: #ccc;
+    z-index: -43;
+
+}
+
+
+.custom-point{
+
+    width: 2rem;
+    height: 2rem;
+    background: #F00;
+    border-radius: 50%;
+}
