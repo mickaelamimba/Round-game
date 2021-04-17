@@ -14,6 +14,8 @@ const newGame = document.querySelector('#newGame ')
 // player
 const playerOne = document.querySelector('#playerOne')
 const playerTow = document.querySelector('#PlayerTow')
+const playerOnPoint = document.querySelector('#playerOnPoint')
+const  playerTowPoint = document.querySelector('#playerTowPoint')
 // player round
 const playerOneRound = document.querySelector('#playerOneRound')
 const playerTowRound = document.querySelector('#playerTowRound')
@@ -22,7 +24,7 @@ const playerOneGlobal = document.querySelector('#playerOneGlobal')
 const playerTowGlobal = document.querySelector('#playerTowGlobal')
 const imageDe = document.querySelector('#imageDe')
 const cssStyleBg = document.querySelector('.custom-bg-color')
-
+// button
 const rollDice = document.querySelector('#rollDice')
 const hold = document.querySelector('#hold')
 const roundPlayerOne = 0
@@ -50,6 +52,7 @@ const reset = () => {
   const html = '<img src="./img/4.svg" alt="image-4" width="196px">'
   imageDe.innerHTML = html
   cssStyleBg.classList.add('custom-bg-color-l')
+
 }
 reset()
 const restetRound = () => {
@@ -67,9 +70,12 @@ rollDice.addEventListener('click', () => {
 
   if (player !== 1) {
     startsPlay(iniRound, playerTowRound, tempTow)
+    addAndRemove(playerTowPoint,'hidden','block')
     cssStyleBg.classList.add('custom-bg-color-r')
     if (iniRound === 1) {
       cssStyleBg.classList.remove('custom-bg-color-r')
+      addAndRemove(playerTowPoint)
+
       player = 1
 
 
@@ -78,9 +84,12 @@ rollDice.addEventListener('click', () => {
   } else {
     startsPlay(iniRound, playerOneRound, tempOne)
     cssStyleBg.classList.add('custom-bg-color-l')
+    addAndRemove(playerOnPoint,'hidden','block')
 
     if (iniRound === 1) {
       cssStyleBg.classList.remove('custom-bg-color-l')
+      addAndRemove(playerOnPoint)
+
       player = 0
 
 
@@ -91,6 +100,7 @@ rollDice.addEventListener('click', () => {
 hold.addEventListener('click', () => {
   if (player !== 1) {
     cssStyleBg.classList.remove('custom-bg-color-r')
+    addAndRemove(playerTowPoint)
     tow.push(...tempTow)
     setReducers(playerTowGlobal, tow)
 
@@ -100,6 +110,7 @@ hold.addEventListener('click', () => {
     restetRound()
   } else {
     cssStyleBg.classList.remove('custom-bg-color-l')
+    addAndRemove(playerOnPoint)
     one.push(...tempOne)
     setReducers(playerOneGlobal, one)
     winAndGameOver(playerOneGlobal, playerOne)
@@ -108,6 +119,10 @@ hold.addEventListener('click', () => {
     restetRound()
   }
 })
+const addAndRemove =(point,block ='block',hidden ='hidden')=>{
+  point.classList.remove(block)
+  point.classList.add(hidden)
+}
 const winAndGameOver = (players, playerId) => {
 
   if (players.textContent >= 100) {
