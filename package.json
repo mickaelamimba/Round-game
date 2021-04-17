@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "jeu de lance de dé",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "js/app.js"
   },
   "author": "Mickael amimba <amimba.mickael@gmail.com",
   "main": "js/app.js",
