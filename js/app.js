@@ -50,9 +50,9 @@ const reset = () => {
   playerTowGlobal.innerText = globalPlayerTow
   one = []
   tow = []
-  tenpOne=[]
+  tempOne=[]
   tempTow =[]
-  const html = '<img src="./img/4.svg" alt="image-4" width="196px">'
+  const html = '<img class="transition-opacity duration-200 ease-in-out shadow"  src="./img/4.svg" alt="image-4" width="196px">'
   imageDe.innerHTML = html
   cssStyleBg.classList.add('custom-bg-color-l')
 
