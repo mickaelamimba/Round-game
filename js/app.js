@@ -38,6 +38,10 @@ let tempTow = []
 let one = []
 let tow = []
 const reducer = (a, b) => a + b
+const addAndRemove =(point,block ='block',hidden ='hidden')=>{
+  point.classList.remove(block)
+  point.classList.add(hidden)
+}
 
 const roundNumber = (max = 6, min = 1) => {
   return Math.floor(Math.random() * (1 + max - min)) + 1
@@ -55,9 +59,16 @@ const reset = () => {
   const html = '<img class="transition-opacity duration-200 ease-in-out shadow"  src="./img/4.svg" alt="image-4" width="196px">'
   imageDe.innerHTML = html
   cssStyleBg.classList.add('custom-bg-color-l')
+  if (playerTowPoint.className.valueOf().match(/block/)) {
+    addAndRemove(playerTowPoint)
+    addAndRemove(playerOnPoint,'hidden','block')
+  }
+
+
 
 }
 reset()
+
 const restetRound = () => {
   playerOneRound.innerText = roundPlayerOne
   playerTowRound.innerText = roundPlayerTow
@@ -89,10 +100,7 @@ rollDice.addEventListener('click', () => {
     if (iniRound === 1) {
       cssStyleBg.classList.remove('custom-bg-color-r')
       addAndRemove(playerTowPoint)
-
       player = 1
-
-
       restetRound()
     }
   } else {
@@ -133,10 +141,7 @@ hold.addEventListener('click', () => {
     restetRound()
   }
 })
-const addAndRemove =(point,block ='block',hidden ='hidden')=>{
-  point.classList.remove(block)
-  point.classList.add(hidden)
-}
+
 const winAndGameOver = (players, playerId) => {
 
   if (players.textContent >= 100) {
