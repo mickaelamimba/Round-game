@@ -123,8 +123,11 @@ hold.addEventListener('click', () => {
   if (player !== 1) {
     cssStyleBg.classList.remove('custom-bg-color-r')
     addAndRemove(playerTowPoint)
-    tow.push(...tempTow)
-    setReducers(playerTowGlobal, tow)
+    if (tempTow != 0){
+      tow.push(...tempTow)
+      setReducers(playerTowGlobal, tow)
+    }
+
 
     winAndGameOver(playerTowGlobal, playerTow)
 
@@ -133,8 +136,11 @@ hold.addEventListener('click', () => {
   } else {
     cssStyleBg.classList.remove('custom-bg-color-l')
     addAndRemove(playerOnPoint)
-    one.push(...tempOne)
-    setReducers(playerOneGlobal, one)
+    if (tempOne !=0){
+      one.push(...tempOne)
+      setReducers(playerOneGlobal, one)
+    }
+
     winAndGameOver(playerOneGlobal, playerOne)
 
     player = 0
